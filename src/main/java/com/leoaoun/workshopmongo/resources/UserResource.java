@@ -5,9 +5,7 @@ import com.leoaoun.workshopmongo.dtos.UserDTO;
 import com.leoaoun.workshopmongo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,4 +23,12 @@ public class UserResource {
         List<UserDTO> usersDTO = users.stream().map(x -> new UserDTO(x.getName(), x.getEmail())).collect(Collectors.toList());
         return ResponseEntity.ok().body(usersDTO);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDTO> findById(@PathVariable String id){
+        User user = userService.findById(id);
+        UserDTO userDTO = new UserDTO(user.getName(), user.getEmail());
+        return ResponseEntity.ok().body(userDTO);
+    }
+
 }
