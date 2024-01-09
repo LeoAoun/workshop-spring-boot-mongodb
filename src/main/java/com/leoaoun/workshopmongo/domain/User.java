@@ -1,5 +1,6 @@
 package com.leoaoun.workshopmongo.domain;
 
+import com.leoaoun.workshopmongo.dtos.UserDTO;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,6 +22,5 @@ public class User implements Serializable {
     private String id;
     private String name;
     private String email;
-
 
 }
