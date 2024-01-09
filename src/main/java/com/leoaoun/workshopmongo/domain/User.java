@@ -23,4 +23,9 @@ public class User implements Serializable {
     private String name;
     private String email;
 
+    public User(UserDTO userDTO) {
+        this.name = userDTO.getName();
+        this.email = userDTO.getEmail();
+    }
+
 }

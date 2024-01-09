@@ -1,6 +1,7 @@
 package com.leoaoun.workshopmongo.services;
 
 import com.leoaoun.workshopmongo.domain.User;
+import com.leoaoun.workshopmongo.dtos.UserDTO;
 import com.leoaoun.workshopmongo.repositories.UserRepository;
 import com.leoaoun.workshopmongo.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,9 @@ public class UserService {
 
         return user;
     }
+
+    public User insert(User user) {
+        return repository.insert(user);
+    }
+
 }
