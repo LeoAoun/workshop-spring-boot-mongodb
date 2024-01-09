@@ -23,7 +23,7 @@ public class UserService {
         User user = repository.findById(id).orElse(null);
 
         if (user == null) {
-            throw new ObjectNotFoundException("Objeto não encontrado");
+            throw new ObjectNotFoundException("User not found");
         }
 
         return user;
@@ -31,6 +31,22 @@ public class UserService {
 
     public User insert(User user) {
         return repository.insert(user);
+    }
+
+    private void updateData(User updatedUser, User user) {
+        updatedUser.setName(user.getName());
+        updatedUser.setEmail(user.getEmail());
+    }
+
+    public User update(User user) {
+        User updatedUser = repository.findById(user.getId()).orElse(null);
+
+        if (updatedUser == null) {
+            throw new ObjectNotFoundException("User not found");
+        }
+
+        updateData(updatedUser, user);
+        return repository.save(updatedUser);
     }
 
     public void delete(String id) {
