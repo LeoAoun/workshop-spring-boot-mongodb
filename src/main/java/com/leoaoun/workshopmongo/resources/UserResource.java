@@ -47,7 +47,7 @@ public class UserResource {
         user = userService.update(user);
         return ResponseEntity.noContent().build();
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id){
         userService.delete(id);
