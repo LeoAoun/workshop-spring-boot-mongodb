@@ -1,5 +1,6 @@
 package com.leoaoun.workshopmongo.resources;
 
+import com.leoaoun.workshopmongo.domain.Post;
 import com.leoaoun.workshopmongo.domain.User;
 import com.leoaoun.workshopmongo.dtos.UserDTO;
 import com.leoaoun.workshopmongo.services.UserService;
@@ -53,5 +54,12 @@ public class UserResource {
         userService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @RequestMapping("/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+        User user = userService.findById(id);
+        return ResponseEntity.ok().body(user.getPosts());
+    }
+
 
 }
