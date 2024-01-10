@@ -1,5 +1,7 @@
 package com.leoaoun.workshopmongo.dtos;
 
+import com.leoaoun.workshopmongo.domain.User;
+
 import java.io.Serial;
 import java.io.Serializable;
 

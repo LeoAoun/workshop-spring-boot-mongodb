@@ -34,4 +34,8 @@ public class User implements Serializable {
         this.email = userDTO.getEmail();
     }
 
+    public User(Object o, String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 }
